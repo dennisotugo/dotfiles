@@ -10,4 +10,6 @@
   <property name="last-show-hidden" type="bool" value="true"/>
   <property name="misc-single-click" type="bool" value="false"/>
   <property name="misc-recursive-permissions" type="string" value="THUNAR_RECURSIVE_PERMISSIONS_NEVER"/>
+  <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_SMALLER"/>
+  <property name="last-details-view-column-widths" type="string" value="50,124,50,50,365,50,50,76,223"/>
 </channel>

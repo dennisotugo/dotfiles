@@ -1,0 +1,2 @@
+GTK_MODULES=unity-gtk-module
+UBUNTU_MENUPROXY=1
