@@ -1,0 +1,35 @@
+[xfdesktop-version-4.10.3+-rcfile_format]
+4.10.3+=true
+
+[/home/wesleydekstar/Desktop/xfwm4]
+row=0
+col=0
+
+[/home/wesleydekstar/Desktop/VID-20160815-WA000.mp4]
+row=5
+col=0
+
+[/home/wesleydekstar/Desktop/Default Project.mp4]
+row=3
+col=0
+
+[/home/wesleydekstar/Desktop/Default Project.ogg]
+row=0
+col=1
+
+[/home/wesleydekstar/Desktop/Default Project.webm]
+row=4
+col=0
+
+[Trash]
+row=1
+col=1
+
+[/]
+row=1
+col=0
+
+[/home/wesleydekstar]
+row=2
+col=0
+

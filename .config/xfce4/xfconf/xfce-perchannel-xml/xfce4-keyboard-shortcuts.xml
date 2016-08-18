@@ -34,9 +34,6 @@
       <property name="&lt;Super&gt;p" type="string" value="xfce4-display-settings --minimal"/>
       <property name="&lt;Primary&gt;Escape" type="string" value="xfdesktop --menu"/>
       <property name="override" type="bool" value="true"/>
-      <property name="F1" type="string" value="rofi">
-        <property name="startup-notify" type="bool" value="true"/>
-      </property>
     </property>
   </property>
   <property name="xfwm4" type="empty">

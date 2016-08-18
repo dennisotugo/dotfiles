@@ -7,6 +7,9 @@
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
+
 export GOPATH=~/go
 export PATH=$PATH:~/go/bin
-export VISUAL="mousepad"
+export VISUAL="leafpad"
+export GTK_MODULES=unity-gtk-module
+export UBUNTU_MENUPROXY=1

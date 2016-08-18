@@ -1,2 +1,3 @@
-WebBrowser=firefox
+WebBrowser=chromium
+MailReader=evolution
 

@@ -1,5 +1,4 @@
 [Configuration]
-ColorBackground=#1b1b20202a2a
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBordersDefault=TRUE
@@ -16,7 +15,8 @@ MiscTabCloseButtons=TRUE
 MiscTabCloseMiddleClick=TRUE
 MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
-FontName=DejaVu Sans Mono 10
-BackgroundDarkness=1.000000
-FontAllowBold=FALSE
+ScrollingLines=1048576
+FontName=Liberation Mono 11
+ColorBackground=#313136363d3d
+ColorForeground=#ffffffffffff
 

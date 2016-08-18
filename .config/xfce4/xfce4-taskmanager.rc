@@ -1,5 +1,5 @@
 [Settings]
-ShowAllProcesses=FALSE
+ShowAllProcesses=TRUE
 MorePrecision=FALSE
 FullCommandLine=FALSE
 ShowStatusIcon=FALSE
