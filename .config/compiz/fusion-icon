@@ -1,0 +1,7 @@
+[compiz options]
+sm disable = false
+keep desktop hints = false
+
+[window manager]
+active wm = compiz
+
