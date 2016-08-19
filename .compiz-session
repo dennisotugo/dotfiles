@@ -1,0 +1,5 @@
+#!/bin/bash
+vala-panel &
+plank &
+nm-applet &
+volumeicon &

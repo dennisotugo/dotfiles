@@ -1,5 +1,5 @@
 [global]
 is-dark=false
 is-custom=false
-logout-command='xfce4-session-logout'
+logout-command='openbox --exit'
 shutdown-command='/usr/bin/systemctl shutdown'
