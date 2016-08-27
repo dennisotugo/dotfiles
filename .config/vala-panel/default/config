@@ -1,5 +1,0 @@
-[global]
-is-dark=false
-is-custom=false
-logout-command='openbox --exit'
-shutdown-command='/usr/bin/systemctl shutdown'

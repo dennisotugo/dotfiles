@@ -1,2 +1,1 @@
-GTK_MODULES=unity-gtk-module
-UBUNTU_MENUPROXY=1
+export GTK_MODULES=unity-gtk-module:$GTK_MODULES

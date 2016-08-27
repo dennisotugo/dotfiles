@@ -1,0 +1,8 @@
+only_maximized=true
+show_on_desktop=false
+sync_wm_theme=true
+button_layout=CMH
+theme=OSX-Arc-Shadow
+inactive_text_alpha=60
+inactive_text_shade=110
+

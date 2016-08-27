@@ -1,0 +1,4 @@
+WebBrowser=chromium
+FileManager=nautilus
+TerminalEmulator=gnome-terminal
+
