@@ -4,7 +4,6 @@
 
 Here is a bunch of ooh and aah looking screenshot of the Desktop
 
- ![](screenshots.png)
- Photo: Nautilus Running *Checking my var/cache folder
+ ![](/Screenshots/screenshots.png)
 
 * * *
