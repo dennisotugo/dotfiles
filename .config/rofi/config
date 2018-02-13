@@ -1,0 +1,26 @@
+! ------------------------------------------------------------------------------
+!                      ROFI Settings
+! ------------------------------------------------------------------------------
+
+! General
+rofi.font:                Iosevka Slab 9
+rofi.fake-transparency:   true
+rofi.hide-scrollbar:      true
+
+
+! Layout
+rofi.width:              25
+rofi.column:             4
+rofi.location:           0
+rofi.lines:              8
+rofi.padding:            50
+rofi.sidebar-mode:       false
+rofi.fullscreen:         false
+
+! ------------------------------------------------------------------------------
+!                      ROFI Color theme
+! ------------------------------------------------------------------------------
+!rofi.color-window: #1d2120, #1d2120, #458588
+!rofi.color-normal: #1d2120, #ebdbb2, #1d2120, #458588, #1d2120
+!rofi.color-active: #1d2120, #ebdbb2, #1d2120, #458588, #1d2120
+!rofi.color-urgent: #1d2120, #69584E, #1d2120, #69584E, #ebdbb2
