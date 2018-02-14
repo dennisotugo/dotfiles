@@ -1,0 +1,48 @@
+# ▒███████▒ ▄▄▄     ▄▄▄█████▓ ██░ ██  █    ██  ██▀███   ▄▄▄       ██▀███   ▄████▄  
+# ▒ ▒ ▒ ▄▀░▒████▄   ▓  ██▒ ▓▒▓██░ ██▒ ██  ▓██▒▓██ ▒ ██▒▒████▄    ▓██ ▒ ██▒▒██▀ ▀█  
+# ░ ▒ ▄▀▒░ ▒██  ▀█▄ ▒ ▓██░ ▒░▒██▀▀██░▓██  ▒██░▓██ ░▄█ ▒▒██  ▀█▄  ▓██ ░▄█ ▒▒▓█    ▄ 
+# ▄▀▒   ░░██▄▄▄▄██░ ▓██▓ ░ ░▓█ ░██ ▓▓█  ░██░▒██▀▀█▄  ░██▄▄▄▄██ ▒██▀▀█▄  ▒▓▓▄ ▄██▒
+# ▒███████▒ ▓█   ▓██▒ ▒██▒ ░ ░▓█▒░██▓▒▒█████▓ ░██▓ ▒██▒ ▓█   ▓██▒░██▓ ▒██▒▒ ▓███▀ ░
+# ░▒▒ ▓░▒░▒ ▒▒   ▓▒█░ ▒ ░░    ▒ ░░▒░▒░▒▓▒ ▒ ▒ ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░░ ▒▓ ░▒▓░░ ░▒ ▒  ░
+# ░░▒ ▒ ░ ▒  ▒   ▒▒ ░   ░     ▒ ░▒░ ░░░▒░ ░ ░   ░▒ ░ ▒░  ▒   ▒▒ ░  ░▒ ░ ▒░  ░  ▒   
+# ░ ░ ░ ░ ░  ░   ▒    ░       ░  ░░ ░ ░░░ ░ ░   ░░   ░   ░   ▒     ░░   ░ ░        
+# ░ ░          ░  ░         ░  ░  ░   ░        ░           ░  ░   ░     ░ ░      
+# ░                                                                       ░        
+
+set font                        "Cantarell 10"
+set default-bg                  "#080a11" #00
+set default-fg                  "#a9aeb4" #01
+
+set statusbar-fg                "#a9aeb4"    #04
+set statusbar-bg                "#0c0e17" #01
+
+set inputbar-bg                 "#0c0e17" #00 currently not used
+set inputbar-fg                 "#3d4550" #02
+
+set notification-error-bg       "#49b5b5" #08
+set notification-error-fg       "#a9aeb4" #00
+
+set notification-warning-bg     "#484f59" #08
+set notification-warning-fg     "#a9aeb4" #00
+
+set highlight-color             "#3d4550" #0A
+set highlight-active-color      "#a9aeb4" #0D
+
+set completion-highlight-fg     "#dedee0"  #02
+set completion-highlight-bg     "#0f8182" #0C
+
+set completion-bg               "#080a11" #02
+set completion-fg               "#a9aeb4" #0C
+
+set notification-bg             "#689eb4" #0B
+set notification-fg             "#a9aeb4" #00
+
+set recolor-lightcolor          "#080a11" #00
+set recolor-darkcolor           "#a9aeb4" #06
+set recolor                     "true"
+
+# setting recolor-keep true will keep any color your pdf has.
+# if it is false, itll just be black and white
+set recolor-keephue             "false"
+
+# Rest of your configs go here:

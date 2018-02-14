@@ -1,0 +1,110 @@
+# conky to work with i3bar
+# icons:     
+
+out_to_x no
+out_to_console yes
+own_window no
+short_units yes
+update_interval 1
+background no
+total_run_times 0
+short_units yes
+use_spacer left
+override_utf8_locale no
+cpu_avg_samples 2
+
+TEXT
+,[
+
+# Kernel
+#{"full_text":"","color":"\#e3e3e3","separator":false,"separator_block_width":6},\
+#{"full_text":"${kernel}","color":"\#525252","separator":false,"separator_block_width":6},\
+#[${execi 1 ~/.conky/conky-mpd/cover.sh}]}
+
+# Mpd
+#{"full_text":"↝","color":"\#555555","separator":false,"separator_block_width":6},\
+#{"full_text":"","color":"\#555555","separator":false,"separator_block_width":6},\
+#{"full_text":"${if_mpd_playing}"},\
+#{"full_text":"${scroll 20 ${mpd_title}}","color":"\#8b8b8b","background":"\#020202","separator":false,"separator_block_width":6},\
+#{"full_text":"${else}"},\
+#{"full_text":".:MPD not running:.","color":"\#8b8b8b","background":"\#020202","separator":false,"separator_block_width":6},\
+#{"full_text":"${endif}"},\
+#{"full_text":"↝","color":"\#555555","separator":false,"separator_block_width":6},\
+
+# Mail
+{"full_text":"[","color":"\#555555","separator":false,"separator_block_width":6},\
+{"full_text":"","color":"\#8c4665","separator":false,"separator_block_width":6},\
+{"full_text":"${execi 300 python ~/.local/bin/gmail.py}","color":"\#899CA1","background":"\#020202","separator":false,"separator_block_width":6},\
+{"full_text":"]","color":"\#555555","separator":false,"separator_block_width":6},\
+
+# Finds current volume. May need modified depending on your setup"
+#{"full_text":"[","color":"\#555555","separator":false,"separator_block_width":6},\
+#{"full_text":"","color":"\#555555","separator":false,"separator_block_width":6},\
+#{"full_text":"${exec amixer -c 0 get Master ↝ grep Mono: ↝ cut -d " " -f6} ","color":"\#899CA1","background":"\#020202","separator":false,"separator_block_width":0},\
+#{"full_text":"]","color":"\#555555","separator":false,"separator_block_width":6},\
+
+# Brighness
+{"full_text":"[","color":"\#555555","separator":false,"separator_block_width":6},\
+{"full_text":" ","color":"\#7c7c99","separator":false,"separator_block_width":6},\
+{"full_text":"${exec xbacklight|awk '{printf("%d\n",$1 + 0.5)}'}% ","color":"\#899CA1","background":"\#020202","separator":false,"separator_block_width":0},\
+{"full_text":"]","color":"\#555555","separator":false,"separator_block_width":6},\
+
+# Download
+#{"full_text":"  ","color":"\#fdf6e3","separator":false,"separator_block_width":6},\
+#{"full_text":"${if_match ${downspeedf enp2s0}<100}${downspeed enp2s0}","color":"\#899CA1","background":"\#020202","separator":false,"separator_block_width":6},\
+#{"full_text":"${else}"},\
+#{"full_text":"${if_match ${downspeedf enp2s0}<300}${downspeed enp2s0}","color":"\#181818","background":"\#020202","separator":false,"separator_block_width":6},\
+#{"full_text":"${else}"},\
+#{"full_text":"${if_match ${downspeedf enp2s0}<700}${downspeed enp2s0}","color":"\#2f2f2f","background":"\#020202","separator":false,"separator_block_width":6},\
+#{"full_text":"${else}"},\
+#{"full_text":"${if_match ${downspeedf enp2s0}<1000}${downspeed enp2s0}","color":"\#899CA1","background":"\#020202","separator":false,"separator_block_width":6},\
+#{"full_text":"${else}"},\
+#{"full_text":"${if_match ${downspeedf enp2s0}>=1000}${downspeed enp2s0}","color":"\#fdf6e3","background":"\#020202","separator":false,"separator_block_width":6},\
+#{"full_text":"${endif}${endif}${endif}${endif}${endif}"},\
+
+# Upload
+#{"full_text":"  ","color":"\#fdf6e3","separator":false,"separator_block_width":6},\
+#{"full_text":"${if_match ${upspeedf enp2s0}<15}${upspeed enp2s0}","background":"\#020202","color":"\#899CA1","separator":false,"separator_block_width":6},\
+#{"full_text":"${else}"},\
+#{"full_text":"${if_match ${upspeedf enp2s0}<35}${upspeed enp2s0}","background":"\#020202","color":"\#2f2f2f","separator":false,"separator_block_width":6},\
+#{"full_text":"${else}"},\
+#{"full_text":"${if_match ${upspeedf enp2s0}>=35}${upspeed enp2s0}","background":"\#020202","color":"\#fdf6e3","separator":false,"separator_block_width":6},\
+#{"full_text":"${endif}${endif}${endif}"},\
+
+# Cpu
+#{"full_text":"  ","color":"\#fdf6e3","separator":false,"separator_block_width":6},\
+#{"full_text":"${if_match ${cpu cpu0}<25}${cpu cpu0}","color":"\#899CA1","background":"\#020202","separator":false,"separator_block_width":0},\
+#{"full_text":"${else}"},\
+#{"full_text":"${if_match ${cpu cpu0}<50}${cpu cpu0}","color":"\#181818","background":"\#020202","separator":false,"separator_block_width":0},\
+#{"full_text":"${else}"},\
+#{"full_text":"${if_match ${cpu cpu0}<75}${cpu cpu0}","color":"\#2f2f2f","background":"\#020202","separator":false,"separator_block_width":0},\
+#{"full_text":"${else}"},\
+#{"full_text":"${if_match ${cpu cpu0}<=100}${cpu cpu0}","color":"\#fdf6e3","background":"\#020202","separator":false,"separator_block_width":0},\
+#{"full_text":"${endif}${endif}${endif}${endif}"},\
+#{"full_text":"%","color":"\#020202 ","background":"\#020202","separator":false,"separator_block_width":6},\
+
+# Ram
+{"full_text":"[","color":"\#555555","separator":false,"separator_block_width":6},\
+{"full_text":"","color":"\#395573","separator":false,"separator_block_width":6},\
+{"full_text":"${mem}","color":"\#899CA1","background":"\#020202","separator":false,"separator_block_width":6},\
+{"full_text":"]","color":"\#555555","separator":false,"separator_block_width":6},\
+
+# Signal
+{"full_text":"[","color":"\#555555","separator":false,"separator_block_width":6},\
+{"full_text":"","color":"\#287373","separator":false,"separator_block_width":6},\
+{"full_text":"${exec bash ~/.local/bin/net.sh}","color":"\#899CA1","background":"\#020202","separator":false,"separator_block_width":6},\
+{"full_text":"]","color":"\#555555","separator":false,"separator_block_width":6},\
+
+#Battery 
+{"full_text":"[","color":"\#555555","separator":false,"separator_block_width":6},\
+{"full_text":"","color":"\#5e468c","separator":false,"separator_block_width":6},\
+{"full_text":"${battery_percent BAT1}%","color":"\#899CA1","background":"\#020202","separator":false,"separator_block_width":6},\
+{"full_text":"]","color":"\#555555","separator":false,"separator_block_width":6},\
+
+# Date
+{"full_text":"[","color":"\#555555","separator":false,"separator_block_width":6},\
+{"full_text":"","color":"\#31658c","separator":false,"separator_block_width":6},\
+{"full_text":"${time %a %d %b %R}","color":"\#899CA1","background":"\#020202","separator":false,"separator_block_width":6},\
+{"full_text":"]","color":"\#555555","separator":false,"separator_block_width":6}\
+
+]

@@ -1,139 +1,103 @@
-;=====================================================
-; Colors used later, change here to change colors
-; in a modular way
-;=====================================================
+;             _       _                                   __ _       
+; _ __   ___ | |_   _| |__   __ _ _ __    ___ ___  _ __  / _(_) __ _ 
+;| '_ \ / _ \| | | | | '_ \ / _` | '__|  / __/ _ \| '_ \| |_| |/ _` |
+;| |_) | (_) | | |_| | |_) | (_| | |    | (_| (_) | | | |  _| | (_| |
+;| .__/ \___/|_|\__, |_.__/ \__,_|_|     \___\___/|_| |_|_| |_|\__, |
+;|_|            |___/                                          |___/ 
+
+
+;*********************************************************
+;
+;                          COLORS
+;
+;**********************************************************
+[colors]
+; Base colors from .Xresources
+bg          =  #080a11
+bg-alt      =  #121622
+fg          =  #a9aeb4
+fg-alt      =  #0c0e17
+red         =  #93282f
+red-alt     =  #93282f
+green       =  #484f59
+green-alt   =  #484f59
+yellow      =  #689eb4
+yellow-alt  =  #689eb4
+blue        =  #616a73
+blue-alt    =  #616a73
+magenta     =  #0f8182
+magenta-alt =  #0f8182
+cyan        =  #49b5b5
+cyan-alt    =  #49b5b5
+white       =  #a9aeb4
+white-alt   =  #dedee0
+
+
 ;**********************************************************
 ;
 ;                       GLOBAL WM SETTINGS
 ;
 ;**********************************************************
 [global/wm]
-margin-top = 0
-margin-bottom = 0
+margin-top = 5
+margin-bottom = 5
 
-[colors]
+;*********************************************************
+;
+;                       BAR SETTINGS
+;
+;********************************************************
+[settings]
+screenchange-reload = true
+compositing-background = over
+compositing-border     = over
 
-; Note: #aarrggbb, omit for solid alpha #rrggbb
-main-bar-background = #1f1f1f
-modules-background  = #1f1f1f
+[bar/top]
+monitor   = ${env:MONITOR:LVDS1}
+width     = 1280px
+height    = 28
+offset-x  = 10
+offset-y  = 10
+override-redirect = false
 
-battery-icon-bgcolor = #61a38d
-volume-icon-bgcolor = #ee4733
-bright-icon-bgcolor = #fabd2b
-date-icon-bgcolor = #d18498
+background = ${colors.bg}
+foreground = ${colors.fg}
 
-;=====================================================
+border-bottom-size = 5
+border-bottom-color = ${colors.bg}
+border-top-size = 5
+border-top-color = ${colors.bg}
 
-;=====================================================
-; i3 colors and settings
-;=====================================================
-[wm_settings]
-focused_background   = #1f1f1f
-unfocused_background = #1f1f1f
-unfocused_alert      = #F4511E
-
-padding = 1
-
-icon_focused = 
-icon_occupied = 
-icon_unfocused = 
-;=====================================================
-
-;=====================================================
-; Fonts 
-;=====================================================
-[fonts]
-font-0 = Font Awesome 5 Free:size=10;3
-font-1 = Material Design Icons:size=11;3
-font-2 = Iosevka Slab:pixelsize=10;3
-font-3 = Iosevka Slab:pixelsize=10;3
-;=====================================================
-
-;=====================================================
-; Main bar
-;=====================================================
-[bar/main]
-width  = 1260px
-height = 26
-fixed-center = true
-
-offset-x = 10
-offset-y = 10
-
-background = ${colors.main-bar-background}
-
-border-size = 5
-border-color = ${colors.main-bar-background}
-
-padding-right = 1
-
-module-margin-left  = 1
+spacing = 0
+padding-left = 1
+padding-right = 0
+module-margin-left = 0
 module-margin-right = 0
 
-font-0 = ${fonts.font-0}
-font-1 = ${fonts.font-1}
-font-2 = ${fonts.font-2}
+font-0 = Iosevka Slab:pixelsize=10;3
+;font-1 = Wuncon Siji:pixelsize=8;2
+font-1 = Material Icons:antialia=false:size=12;5
 
-enable-ipc = true
-
-modules-left   = bspwm
-modules-center = 
-modules-right  = volume xbacklight battery date
-
-wm-restack = bspwm
-
-tray-position    = right
-tray-padding     = 0 
-tray-background  = ${colors.modules-background}
+tray-position = right
+tray-padding = 0
 tray-scale       = 1.0
+tray-background = #101010
+
+modules-left = bspwm
+modules-center = date
+modules-right = xbacklight volume memory battery
 
 dim-value = 1.0
 
-bottom = false
-;=====================================================
 
-;=====================================================
-; Module i3
-;=====================================================
+;**********************************************************
+;
+;                   MODULES SETTINGS
+;
+;**********************************************************
+
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-;Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-label-mode = " %mode% "
-label-mode-padding    = 0
-label-mode-background = ${wm_settings.unfocused_background}
-
-; focused = Active workspace on focused monitor
-label-focused            = %name%
-label-focused-padding    = ${wm_settings.padding}
-label-focused-background = ${wm_settings.focused_background}
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused            = %name%
-label-unfocused-padding    = ${wm_settings.padding}
-label-unfocused-background = ${wm_settings.unfocused_background}
-
-; visible = Active workspace on unfocused monitor
-label-visible            = %name%
-label-visible-padding    = ${self.label-focused-padding}
-label-visible-background = ${self.label-focused-background}
-
-; urgent = Workspace with urgency hint set
-label-urgent            = %name%
-label-urgent-background = ${wm_settings.unfocused_alert}
-label-urgent-padding    = ${wm_settings.padding}
-;=====================================================
-
-;=====================================================
-; Module bspwm
-;=====================================================
-[module/bspwm]
-type = internal/bspwm
 ;ws-icon-[0-9]+ = label;icon
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -145,59 +109,77 @@ ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
 ws-icon-9 = 10;
+;ws-icon-default = 
 
-label-focused            = ${wm_settings.icon_focused}
-label-focused-padding    = ${wm_settings.padding}
-label-focused-background = ${wm_settings.focused_background}
+strip-wsnumbers = true
 
-label-occupied            = ${wm_settings.icon_occupied}
-label-occupied-padding    = ${wm_settings.padding}
-label-occupied-background = ${colors.modules-background}
+label-focused = "%name%"
+label-focused-foreground = ${colors.fg}
+;label-focused-background = ${colors.magenta}
+label-focused-padding = 0
 
-label-urgent            = ${wm_settings.icon_focused}
-label-urgent-padding    = ${wm_settings.padding}
-label-urgent-background = ${wm_settings.unfocused_alert}
+label-unfocused = 
+label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.blue}
+label-unfocused-background = ${colors.bg-alt}
 
-label-empty            = ${wm_settings.icon_unfocused}
-label-empty-padding    = ${wm_settings.padding}
-label-empty-background = ${colors.modules-background}
-;=====================================================
+label-urgent = "%name%"
+label-urgent-foreground = ${colors.red}
+;label-urgent-background = ${colors.white}
+label-urgent-padding = 1
 
+label-visible = 
+label-visible-foreground = ${colors.blue}
+label-visible-background = ${colors.bg-alt}
+label-visible-padding = 1
 
-;=====================================================
-; Module MPD:
-; Music player
-;=====================================================
-[module/mpd]
-type = internal/mpd
-
-format-online = <label-song><icon-prev><icon-stop><toggle><icon-next>
-
-icon-prev            = " "
-icon-prev-background = ${colors.modules-background}
-
-icon-stop            = " "
-icon-stop-background = ${colors.modules-background}
-
-icon-play            = " "
-icon-play-background = ${colors.modules-background}
-
-icon-pause            = " "
-icon-pause-background = ${colors.modules-background}
-
-icon-next            = "   "
-icon-next-background = ${colors.modules-background}
-
-label-song            = "  %artist% - %title%" 
-label-song-maxlen     = 30
-label-song-ellipsis   = true
-label-song-background = ${colors.modules-background}
-;=====================================================
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.magenta}
+label = "%percentage_used% "
 
 
-;=====================================================
-; Module date and time
-;=====================================================
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP0
+full-at = 100
+
+label-discharging = "%percentage%% "
+;format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-full = " full "
+format-full-prefix = 
+format-full-prefix-foreground = ${colors.magenta}
+
+format-charging-prefix = 
+format-charging-prefix-foreground = ${colors.magenta}
+
+ramp-capacity-0 = 
+ramp-capacity-1 =  
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.magenta}
+
+label-charging = "Charging %percentage%% "
+label-charging-foreground = ${colors.fg}
+
+;animation-charging-0 = 
+;animation-charging-1 = 
+;animation-charging-2 = 
+;animation-charging-foreground = ${colors.magenta}
+;animation-charging-framerate = 750
+
+[module/menu]
+type = custom/text
+
+content = "  "
+content-foreground = ${colors.magenta}
+;content-background = ${colors.magenta}
+click-left = ~/.config/popups/todo/todo
+
 [module/date]
 type = internal/date
 interval = 5
@@ -208,87 +190,32 @@ date-alt = "%a %d %b %Y"
 time = %H:%M
 time-alt = %H:%M
 
-format-prefix            = ""
-format-prefix-foreground = ${colors.date-icon-bgcolor}
-format-prefix-background = ${colors.modules-background}
-format-prefix-font = 3
+label = "%date% %time%"
 
-label            = "%date% %time% "
-label-background = ${colors.modules-background}
-;=====================================================
+[module/uptime]
+type = custom/script
+interval = 1200
+format = "<label> "
+format-prefix = " "
+format-prefix-foreground = ${colors.magenta}
+exec = ~/.config/polybar/uptime
 
+[module/mpd]
+type = custom/script
+interval = 2
+format = "<label>"
+format-prefix = " "
+format-prefix-foreground = ${colors.magenta}
+exec = ~/.config/polybar/mpd
 
-;=====================================================
-; Module battery:
-; Shows information about the battery
-;=====================================================
-[module/battery]
-type = internal/battery
+[module/power-label]
+type = custom/text
+content = "  "
 
-; Use the following command to list batteries and adapters
-; $ ls -l /sys/class/power_supply
-battery = BAT0
-adapter = ADP0
+content-foreground = ${colors.magenta}
+;content-background = ${colors.magenta-alt}
+click-left = bash ~/.config/popups/power/power
 
-
-; Useful in case the battery never reports 100% charge
-full-at = 100
-
-; Time format (see "man date")
-time-format = [%H:%M]
-
-; Format when battery is charging
-format-charging            = <label-charging>
-label-charging             = " %percentage%% %time% "
-format-charging-background = ${colors.modules-background}
-label-charging-background  = ${colors.modules-background}
-
-; Format when battery is discharging
-format-discharging            = <ramp-capacity><label-discharging>
-label-discharging             = " %percentage%% %time% "
-format-discharging-background = ${colors.modules-background}
-label-discharging-background  = ${colors.modules-background}
-
-; Format when battery is fully charged
-format-full            = <ramp-capacity><label-full>
-format-full-background = ${colors.modules-background}
-label-full             = " Full "
-label-full-background  = ${colors.modules-background}
-
-ramp-capacity-font = 2
-ramp-capacity-0  = ""
-ramp-capacity-1  = ""
-ramp-capacity-2  = ""
-ramp-capacity-3  = ""
-ramp-capacity-4  = ""
-ramp-capacity-5  = ""
-ramp-capacity-6  = ""
-ramp-capacity-7  = ""
-ramp-capacity-8  = ""
-ramp-capacity-9  = ""
-ramp-capacity-10 = ""
-ramp-capacity-foreground = ${colors.battery-icon-bgcolor}
-ramp-capacity-background = ${colors.modules-background}
-
-animation-charging-font = 2
-animation-charging-0 = ""
-animation-charging-1 = ""
-animation-charging-2 = ""
-animation-charging-3 = ""
-animation-charging-4 = ""
-animation-charging-5 = ""
-animation-charging-6 = ""
-animation-charging-framerate = 750
-animation-charging-foreground = ${colors.battery-icon-bgcolor}
-animation-charging-background = ${colors.modules-background}
-;=====================================================
-
-
-;=====================================================
-; Module xbacklight:
-; Shows information about the defined output's
-; backlight level
-;=====================================================
 [module/xbacklight]
 type = internal/xbacklight
 enable-scroll = true
@@ -297,90 +224,37 @@ format = <ramp><label>
 
 ; format label (if <label> is present)
 label            = " %percentage%% "
-label-background = ${colors.modules-background}
+label-background = ${colors.bg}
 
 ; format ramp (if <ramp> is present)
-ramp-0 = "" 
-ramp-foreground = ${colors.bright-icon-bgcolor}
-ramp-background = ${colors.modules-background}
-;=====================================================
+ramp-0 =  
+ramp-foreground = ${colors.magenta}
+ramp-background = ${colors.bg}
 
-
-;=====================================================
-; Module volume
-;=====================================================
 [module/volume]
 type = internal/volume
 
 format-volume = <ramp-volume><label-volume> 
 label-volume  = " %percentage%% "
-label-volume-background = ${colors.modules-background}
+label-volume-background = ${colors.bg}
 
 format-muted                    = <label-muted>
-format-muted-prefix             = " "
-format-muted-prefix-foreground  = ${colors.volume-icon-bgcolor}
-format-muted-prefix-background  = ${colors.modules-background}
+format-muted-prefix             = 
+format-muted-prefix-foreground  = ${colors.magenta}
+format-muted-prefix-background  = ${colors.bg}
 
 label-muted            = Muted
-label-muted-background = ${colors.modules-background} 
+label-muted-background = ${colors.bg} 
 
-ramp-volume-0 = ""
-ramp-volume-1 = ""
-ramp-volume-2 = ""
-ramp-volume-foreground = ${colors.volume-icon-bgcolor}
-ramp-volume-background = ${colors.modules-background}
-;=====================================================
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-foreground = ${colors.magenta}
+ramp-volume-background = ${colors.bg}
+[module/sepa]
+type = custom/text
+content = " // "
 
-
-;=====================================================
-; Module wlan
-;=====================================================
-[module/wlan]
-type      = internal/network
-interface = wls33
-interval  = 3.0
-
-; Don't show it if disconnected
-format-disconnected = 
-
-; When connected
-format-connected           = <ramp-signal><label-connected>
-label-connected            = " %local_ip% "
-label-connected-background = ${colors.main-bar-background}
-
-ramp-signal-0 = " "
-ramp-signal-background = ${colors.main-bar-background}
-;=====================================================
-
-
-;=====================================================
-; Module ethernet
-;=====================================================
-[module/eth]
-type = internal/network
-interface = enp1s0
-interval = 3.0
-
-; Don't show it if disconnected
-format-disconnected =
-
-format-connected-prefix-background = ${colors.main-bar-background}
-format-connected-prefix            = " "
-
-label-connected-background = ${colors.main-bar-background}
-label-connected            = " %local_ip% "
-
-;=====================================================
-
-
-;=====================================================
-; Settings
-;=====================================================
-[settings]
-screenchange-reload = true
-compositing-background = over
-compositing-border     = over
-;=====================================================
-
+content-foreground = ${colors.red}
 
 ; vim:ft=dosini

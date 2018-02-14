@@ -12,15 +12,32 @@
 #                                                  
 
 
-export PROJECT_HOME=$HOME/Code/
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
 export PATH=$HOME/.local/bin:$HOME/Repositories/penscripts:$PATH
-export RANGER_LOAD_DEFAULT_RC=FALSE
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
 export VISUAL=vim
 export EDITOR=vim
-export TERM="rxvt-unicode-256color"
 export XDG_CONFIG_HOME="$HOME/.config"
 
+##
+
+gpg-agent --daemon --no-grab >/dev/null 2>&1
+export GPG_TTY=`tty`
+export GPG_AGENT_INFO
+
+alias      ..='cd ..'
+alias     ...='cd ../..'
+alias    ....='cd ../../..'
+alias   .....='cd ../../../..'
+alias  ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+
+alias 2..='cd ../..'
+alias 3..='cd ../../..'
+alias 4..='cd ../../../..'
+alias 5..='cd ../../../../..'
+alias 6..='cd ../../../../../..'
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return

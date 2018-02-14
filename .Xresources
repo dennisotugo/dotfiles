@@ -1,0 +1,98 @@
+!    ░█  █░                                                               
+!     ▓▒▒▓   █▒██▒  ███   ▒███▒   ███   █   █   █▒██▒  ▓██▒   ███   ▒███▒ 
+!      ██    ██  █ ▓▓ ▒█  █▒ ░█  █▓ ▓█  █   █   ██  █ ▓█  ▓  ▓▓ ▒█  █▒ ░█ 
+!      ██    █     █   █  █▒░    █   █  █   █   █     █░     █   █  █▒░   
+!     ▒██░   █     █████  ░███▒  █   █  █   █   █     █      █████  ░███▒ 
+!     █▒▒█   █     █         ▒█  █   █  █   █   █     █░     █         ▒█ 
+!    ▒█  █░  █     ▓▓  █  █░ ▒█  █▓ ▓█  █▒ ▓█   █     ▓█  ▓  ▓▓  █  █░ ▒█ 
+!    █▒  ▒█  █      ███▒  ▒███▒   ███   ▒██▒█   █      ▓██▒   ███▒  ▒███▒                                                                       
+                                                                      
+
+!-----------------------------------------------------------------------
+!                         Xft settings
+!-----------------------------------------------------------------------
+
+Xft.dpi:                96
+Xft.autohint:           0       
+Xft.antialias:          true
+Xft.rgba:               rgb
+Xft.hinting:            true
+Xft.lcdfilter:          lcddefault
+Xft.hintstyle:          hintsfull
+
+
+!-----------------------------------------------------------------------
+!                        URxvt settings 
+!-----------------------------------------------------------------------
+
+URxvt.internalBorder:    10
+URxvt.externalBorder:    0
+!URxvt.lineSpace:        0
+!urxvt*shading:          30
+URxvt.depth:             32
+URxvt.saveLines:         10000
+URxvt*geometry:          96x30
+URxvt*terminalName:      rxvt-unicode-256color
+URxvt*visualBell:        false
+
+!! Scrollbar
+!URxvt.scrollStyle:      rxvt
+URxvt.scrollBar:         false
+URxvt*scrollTtyOutput:   false
+URxvt*scrollWithBuffer:  true
+URxvt*scrollTtyKeypress: true
+
+!! Fonts
+#define fonts xft:Iosevka Slab:size=9,\
+              xft:Droid Sans Mono for Powerline:size=12,\
+              xft:Dejavu Sans Mono for Powerline:size=12,\
+              xft:Tewi:size=8,\
+              xft:Siji:size=12
+
+URxvt*font:              fonts
+URxvt*boldMode:          true
+URxvt*boldFont:          fonts
+
+URxvt.letterSpace:       true
+
+!! Keybinding
+URxvt.keysym.C-Up:       perl:font-size:increase
+URxvt.keysym.C-Down:     perl:font-size:decrease
+URxvt.keysym.C-S-Up:     perl:font-size:incglobal
+URxvt.keysym.C-S-Down:   perl:font-size:decglobal
+!Home and End keys to jump to the beginning and end of lines
+URxvt*keysym.Home:       \033[1~
+URxvt*keysym.End:        \033[4~
+
+!! Tabs
+URxvt.tabbed.tabbar-bg:  -1
+URxvt.tabbed.tabbar-fg:  -2
+URxvt.tabbed.tab-bg:     -2
+URxvt.tabbed.tab-fg:     -1
+URxvt.tabbed.title-bg:   -1
+URxvt.tabbed.title-fg:   -2
+URxvt.tabbed.autohide:   true
+URxvt.tabbed.new-button: false
+URxvt.tabbed.title:      true
+
+!! Perl extensions
+! url-select (part of urxvt-perls package)
+URxvt.perl-ext-common:      default,clipboard,matcher,keyboard-select
+URxvt.keysym.M-u: perl:     url-select:select_next
+URxvt.url-select.autocopy:  true
+URxvt.url-select.button:    2
+URxvt.url-select.underline: true
+URxvt.url-launcher:         /usr/bin/luakit
+URxvt.matcher.button:       1
+
+!! CopyPaste Keys
+URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+
+!! Disable the stupid ctrl+shift 'feature'
+URxvt.iso14755:            false
+URxvt.iso14755_52:         false
+
+!! Cursor
+Xcursor.theme:             Adwaita
+

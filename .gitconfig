@@ -1,0 +1,6 @@
+[user]
+	email = otugodennis@gmail.com
+	name = Dennis Otugo
+	signingkey = A11DACCED09B28FC
+[commit]
+	gpgsign = true
