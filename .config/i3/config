@@ -8,7 +8,7 @@
 set $mod Mod4
 
 # Start a terminal
-bindsym $mod+Return exec --no-startup-id urxvtc
+bindsym $mod+Return exec --no-startup-id termite
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -21,7 +21,9 @@ bindsym $mod+Shift+Escape exec i3-msg exit
 
 # Start Rofi (a program launcher, ssh, window switcher)
 # https://davedavenport.github.io/rofi/
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+Shift+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # Change focus
 bindsym $mod+j focus left
@@ -98,7 +100,6 @@ bindsym $mod+7 workspace $w7
 bindsym $mod+8 workspace $w8
 bindsym $mod+9 workspace $w9
 bindsym $mod+0 workspace $w10
-bindsym $mod+Tab workspace back_and_forth
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $w1
@@ -156,8 +157,8 @@ bindsym $mod+minus scratchpad show
 #smart_borders on
 
 # Global gaps size
-# gaps inner 0
-# gaps outer 0
+gaps inner 15
+gaps outer 0
 
 # set $mode_gaps Gaps: (o) outer, (i) inner
 # set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -208,10 +209,6 @@ bindsym $mod+r mode "resize"
 # Lock screen
 set $Locker i3lock-fancy
 
-#Policykit
-exec /usr/lib/polkit-1/polkitd --no-debug
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
 # Shutdwon, Restart, Logout, Suspend, Hibernate, Reboot, Lock
 # set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 # mode "$mode_system" {
@@ -226,8 +223,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #     bindsym Return mode "default"
 #     bindsym Escape mode "default"
 # }
-#bindsym $mod+F9 mode "$mode_system"
-bindsym $mod+F9 exec --no-startup-id $HOME/.config/popups/power/power
+bindsym $mod+F9 mode "$mode_system"
 
 # Volume control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
@@ -238,54 +234,44 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh
 
 # Screenshot with scrot
-bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/screenshots' && notify-send "Screenshot Taken"
+bindsym Print exec --no-startup-id scrot -e 'mv $f ~/Pictures/Screenshots' && notify-send "Screenshot Taken"
 
 # Kill screencast
 bindsym $mod+x  exec --no-startup-id pkill -f 'x11grab'
 
-# View Todo List
-bindsym $mod+F10 exec --no-startup-id ~/.config/popups/todo/todo
-
 # My apps shortcut
 bindsym $mod+p exec --no-startup-id pcmanfm 
-bindsym $mod+b exec --no-startup-id luakit
+bindsym $mod+b exec --no-startup-id google-chrome-stable
 
-# Theme switcher
-bindsym $mod+F11 exec --no-startup-id ~/.local/bin/themeswitcher
-
-# Mpc play next song
-bindsym $mod+n exec --no-startup-id mpc next
 
 # Custom colors
-set_from_resource $black       color8  #000000
-set_from_resource $darkblack   color0  #000000
-set_from_resource $darkred     color1  #000000
-set_from_resource $red         color9  #000000
-set_from_resource $darkgreen   color2  #000000
-set_from_resource $green       color10 #000000
-set_from_resource $darkyellow  color3  #000000
-set_from_resource $yellow      color11 #000000
-set_from_resource $darkblue    color4  #000000
-set_from_resource $blue        color12 #000000
-set_from_resource $darkmagenta color5  #000000
-set_from_resource $magenta     color13 #000000
-set_from_resource $darkcyan    color6  #000000
-set_from_resource $cyan        color14 #000000
-set_from_resource $white       color7  #000000
-set_from_resource $darkwhite   color15 #000000
+set_from_resource $black       color8  #574f4a
+set_from_resource $darkblack   color0  #574f4a
+set_from_resource $darkred     color1  #574f4a
+set_from_resource $red         color9  #574f4a
+set_from_resource $darkgreen   color2  #574f4a
+set_from_resource $green       color10 #574f4a
+set_from_resource $darkyellow  color3  #574f4a
+set_from_resource $yellow      color11 #574f4a
+set_from_resource $darkblue    color4  #574f4a
+set_from_resource $blue        color12 #574f4a
+set_from_resource $darkmagenta color5  #574f4a
+set_from_resource $magenta     color13 #574f4a
+set_from_resource $darkcyan    color6  #574f4a
+set_from_resource $cyan        color14 #574f4a
+set_from_resource $white       color7  #574f4a
+set_from_resource $darkwhite   color15 #574f4a
 
 set $darkblack   #161824
 set $background  #101010
 
 # Window colors           border      background   text            indicator    child_border
-client.focused            $blue       $blue        $white          $darkblack  $darkblack
-client.focused_inactive   $darkblack  $darkblack   $white          $darkblack  $darkblack
-client.unfocused          $darkgreen  $darkgreen   $white          $darkblack  $darkblack
-client.urgent             $darkblack  $darkblack   $white          $darkblack  $darkblack
+client.focused            #574f4a       #574f4a        #574f4a          #574f4a  #574f4a
+client.focused_inactive   #574f4a  #574f4a   #574f4a          #574f4a  #574f4a
+client.unfocused          #574f4a  #574f4a   #574f4a          #574f4a  #574f4a
+client.urgent             #574f4a  #574f4a   #574f4a          #574f4a  #574f4a
 
 #Start i3bar to display a workspace bar
 #Uncomment to use the default i3bar status
@@ -326,7 +312,7 @@ exec --no-startup-id . $HOME/.local/bin/barstart &
 #*************  Other settings  *********************
 
 # Set per-application border
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 5
 #for_window [class="(?i)urxvt"] border pixel 4
 # Uncomment bellow line for fancy urxvt title bar
 #for_window [class="(?i)urxvt"] border normal 0

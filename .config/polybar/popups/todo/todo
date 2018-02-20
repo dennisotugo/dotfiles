@@ -1,0 +1,4 @@
+#!/bin/bash
+# Description: A simple Todo List using notify-send
+
+exec /opt/google/chrome/google-chrome --profile-directory=Default --app-id=hmjkmjkepdijhoojdojkdfohbdgmmhki
