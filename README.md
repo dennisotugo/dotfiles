@@ -6,7 +6,7 @@ Here is a bunch of ooh and aah looking screenshot of the Desktop
 
 ### Updated Version Shots
 
- ![](Screenshots/Screenshots.png)
+ ![](Screenshots/Screenshots)
 
 
 ### Previous Version Shots
