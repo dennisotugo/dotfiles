@@ -1,13 +1,15 @@
 # What Makes Desktop
 
-** Currently a work-in-progress **
+## Currently a work-in-progress
 
 Here is a bunch of ooh and aah looking screenshot of the Desktop
-*** Updated Version Shots ***
+
+### Updated Version Shots
+
  ![](Screenshots/Screenshots.png)
 
 
-*** Previous Version Shots ***
+### Previous Version Shots
  ![](Screenshots/screenshot_6.png)
   ![](Screenshots/2018-02-23-024416_1280x800_scrot.png)
    ![](Screenshots/2018-02-24-184023_1280x800_scrot.png)
