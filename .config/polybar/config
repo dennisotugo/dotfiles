@@ -39,8 +39,8 @@ white-alt   =  #dedee0
 ;
 ;**********************************************************
 [global/wm]
-margin-top = 0
-margin-bottom = 0
+margin-top = 5
+margin-bottom = 5
 
 ;*********************************************************
 ;
@@ -48,7 +48,7 @@ margin-bottom = 0
 ;
 ;********************************************************
 [bar/top]
-monitor = ${env:MONITOR:LVDS1}
+monitor = ${env:MONITOR:LVDS-1}
 bottom = false
 width = 1280
 height = 30
@@ -74,21 +74,140 @@ module-margin-right = 0
 
 font-0 = Iosevka Slab:size=10;3
 ;font-1 = Siji:antialias=false:size=12;3
-font-1 = Material Icons:antialia=false:size=12;5
+font-1 = Material Icons:antialias=false:size=12;5
 
 modules-left = menu i3
 modules-center = date
-modules-right = temperature xbacklight volume cpu memory wlan battery power-label
+modules-right = temperature volume cpu wlan battery power-label
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
+[bar/bottom]
+monitor = ${env:MONITOR:LVDS-1}
+bottom = true
+width = 1280
+height = 30
+;offset-x = 15
+;offset-y = 10
+override-redirect = false
+fixed-center = true
+wm-restack = i3
+
+background = ${colors.bg}
+foreground = ${colors.fg}
+
+;border-bottom-size = 1
+;border-top-size = 3
+;border-top-color = ${colors.green}
+;border-bottom-color = ${colors.bg-alt}
+
+spacing = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Iosevka Slab:size=10;3
+font-1 = Siji:antialias=false:size=12;3
+font-2 = Material Icons:antialias=false:size=12;5
+font-3 = FontAwesome:pixelsize=12;4
+font-4 = hack:pixelsize=10;2
+font-5 = unifont:size=10;2
+
+modules-left = networkspeeddown networkspeedup
+modules-center = mpd
+modules-right = memory eth ip
+
+
+; Position of the system tray window
+; If empty or undefined, tray support will be disabled
+; NOTE: A center aligned tray will cover center aligned modules
+;
+; Available positions:
+;   left
+;   center
+;   right
+tray-position = left
+
+; If true, the bar will not shift its
+; contents when the tray changes
+tray-detached = false
+
+; Tray icon max size
+tray-maxsize = 22
+
+; Enable pseudo transparency
+; Will automatically be enabled if a fully transparent
+; background color is defined using `tray-background`
+tray-transparent = false
+
+
+; Tray offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
+tray-offset-x = 0
+tray-offset-y = 0
+
+; Pad the sides of each tray icon
+tray-padding = 0
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 ;**********************************************************
 ;
 ;                   MODULES SETTINGS
 ;
 ;**********************************************************
+
+[module/cpu2]
+type = internal/cpu
+interval = 2
+format = <ramp-coreload>
+format-prefix =
+format-prefix-foreground = ${colors.fg}
+;format-underline = #f90000
+label = %percentage%
+ramp-coreload-0 = %{F#5b}▁%{F-}
+ramp-coreload-1 = %{F#5b}▂%{F-}
+ramp-coreload-2 = %{F#5b}▃%{F-}
+ramp-coreload-3 = %{F#ff5c57}▄%{F-}
+ramp-coreload-4 = %{F#ff5c57}▅%{F-}
+ramp-coreload-5 = %{F#ff5c57}▆%{F-}
+ramp-coreload-6 = %{F#ff5c57}▇%{F-}
+ramp-coreload-7 = %{F#ff5c57}█%{F-}
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+format = <label> <bar-used>
+format-prefix = 
+format-prefix-foreground = ${colors.fg-alt}
+;format-underline = #4bffdc
+format-suffix = "  "
+format-suffix-foreground = ${colors.fg-alt}
+label =
+bar-used-width = 30
+bar-used-foreground-0 = #5af78e
+bar-used-foreground-1 = #5af78e
+bar-used-foreground-2 = #f3f99d
+bar-used-foreground-3 = #ff5c57
+;bar-used-fill = ▐
+bar-used-fill = 
+bar-used-empty = 
+bar-used-empty-foreground = #000000
+bar-used-indicator =
+
+[module/ip]
+type = custom/script
+interval = 2
+format = "<label> "
+format-prefix = "IP: "
+format-prefix-foreground = ${colors.fg}
+format-background = ${colors.bg}
+format-padding = 1
+exec = echo "$(curl --limit-rate 1k -s https://ifcfg.me)"
+exec-if = ping -c 1 gentoo.org
 
 [module/i3]
 type = internal/i3
@@ -100,7 +219,7 @@ ws-icon-2 = 3:read;
 ws-icon-3 = 4:medi;
 ws-icon-4 = 5:file;
 ws-icon-5 = 6:term;
-ws-icon-6 = 7:vlabs;
+ws-icon-6 = 7:vlab;
 ws-icon-7 = 8:apps;
 ws-icon-8 = 9:hack;
 ws-icon-9 = 10:misc;
@@ -135,12 +254,21 @@ format-prefix = " "
 format-prefix-foreground = ${colors.magenta}
 label = "%percentage%   "
 
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.magenta}
-label = "%percentage_used%   "
+[module/networkspeedup]
+type = internal/network
+interface = wls33
+label-connected = "%upspeed%"
+format-connected = <label-connected>
+format-connected-prefix = "  "
+format-connected-prefix-foreground = ${colors.magenta}
+
+[module/networkspeeddown]
+type = internal/network
+interface = wls33
+label-connected = "%downspeed%"
+format-connected = <label-connected>
+format-connected-prefix = " NET:  "
+format-connected-prefix-foreground = ${colors.magenta}
 
 [module/wlan]
 type = internal/network
@@ -163,7 +291,7 @@ ramp-signal-foreground = ${colors.magenta-alt}
 
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = ens37
 interval = 3.0
 
 format-connected-prefix = " "
@@ -254,8 +382,40 @@ content-foreground = ${colors.bg}
 content-background = ${colors.magenta-alt}
 click-left = bash ~/.config/polybar/popups/power/power
 
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <icon-stop> <label-song> <toggle> <icon-next>  <icon-repeat> <icon-random>
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-random = 
+icon-repeat = 
+
+icon-foreground = ${colors.magenta-alt}
+
+toggle-on-foreground =
+toggle-off-foreground = ${colors.magenta-alt}
+
+bar-progress-width = 45
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = ${colors.magenta-alt}
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
+
 [module/xbacklight]
 type = internal/xbacklight
+
+; XRandR output to get get values from
+; Default: the monitor defined for the running bar
 
 enable-scroll = true
 
@@ -284,6 +444,12 @@ ramp-volume-1 = ""
 ramp-volume-2 = ""
 ramp-headphones-0 = ""
 ramp-volume-foreground = ${colors.magenta-alt}
+
+[settings]
+; Compositing operators
+; @see: https://www.cairographics.org/manual/cairo-cairo-t.html#cairo-operator-t
+compositing-background = below
+compositing-foreground = below
 
 
 ; vim:ft=dosini
