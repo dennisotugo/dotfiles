@@ -308,10 +308,10 @@ for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
 exec /usr/lib/polkit-1/polkitd --no-debug &
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec redshift &
-exec feh --bg-scale /home/dennis/Pictures/Wallpaper/kate-hazen-unleash-your-robot-blue.png &   
-exec compton --config ~/.compton.conf -b &
+exec feh --bg-scale $HOME/Pictures/Wallpaper/kate-hazen-unleash-your-robot-blue.png &   
+exec compton --config $HOME/.compton.conf -b &
 exec dunst -config $HOME/.config/dunst/dunstrc &  
-exec xrdb -load -I$HOME ~/.Xresources &
+exec xrdb -load -I $HOME/.Xresources &
 exec polybar top &
 exec polybar bottom &
 # Other apps are being started by .xinitrc check it to see what apps are being
