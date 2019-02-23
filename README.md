@@ -1,8 +1,8 @@
-# What Makes Desktop
+# Desktop
 
 ## Currently a work-in-progress
 
-Here is a bunch of ooh and aah looking screenshot of the Desktop
+Here is a bunch of ooh and aah looking screenshots of my Desktop
 
 ### Updated Version Shots
 
